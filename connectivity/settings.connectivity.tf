@@ -148,14 +148,14 @@ locals {
           # module.alz.azurerm_resource_group.connectivity["(...)"]
           dns = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-dns"
             }
           }
 
           # module.alz.azurerm_resource_group.virtual_wan["(...)"] 
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-vwan"
             }
           }
         }
@@ -164,7 +164,7 @@ locals {
         azurerm_firewall_policy = {
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-fwp"
             }
           }
         }
@@ -173,7 +173,7 @@ locals {
         azurerm_firewall = {
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-fw"
             }
           }
         }
@@ -182,7 +182,7 @@ locals {
         azurerm_virtual_wan = {
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-wan"
             }
           }
         }
@@ -191,7 +191,7 @@ locals {
         azurerm_virtual_hub = {
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name"
+              name = "my-custom-name-wanh"
             }
           }
         }

@@ -3,7 +3,7 @@
 locals {
   custom_landing_zones = {
     "test-online-example-1" = {
-      display_name               = "TEST Online Example 1"
+      display_name               = "my-custom-landing-zone-1"
       parent_management_group_id = "test-landing-zones"
       subscription_ids           = []
       archetype_config = {
