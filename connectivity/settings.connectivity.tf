@@ -42,9 +42,13 @@ locals {
                 }
               }
             }
-            spoke_virtual_network_resource_ids        = []
-            secure_spoke_virtual_network_resource_ids = []
-            enable_virtual_hub_connections            = false
+            spoke_virtual_network_resource_ids = []
+            secure_spoke_virtual_network_resource_ids = [
+              data.terraform_remote_state.spokes.outputs.spokes["dns_resolver"].id,
+              data.terraform_remote_state.spokes.outputs.spokes["example_1"].id,
+              data.terraform_remote_state.spokes.outputs.spokes["example_2"].id
+            ]
+            enable_virtual_hub_connections = true
           }
         },
       ]
@@ -116,7 +120,7 @@ locals {
             microsoft_power_bi                   = false
             signalr                              = false
             signalr_webpubsub                    = false
-            storage_account_blob                 = false
+            storage_account_blob                 = true
             storage_account_file                 = false
             storage_account_queue                = false
             storage_account_table                = false
@@ -127,9 +131,11 @@ locals {
           ]
           public_dns_zones                                       = []
           private_dns_zones                                      = []
-          enable_private_dns_zone_virtual_network_link_on_hubs   = true
-          enable_private_dns_zone_virtual_network_link_on_spokes = true
-          virtual_network_resource_ids_to_link                   = []
+          enable_private_dns_zone_virtual_network_link_on_hubs   = false
+          enable_private_dns_zone_virtual_network_link_on_spokes = false
+          virtual_network_resource_ids_to_link = [
+            data.terraform_remote_state.spokes.outputs.spokes["dns_resolver"].id,
+          ]
         }
       }
     }
@@ -148,7 +154,7 @@ locals {
           # module.alz.azurerm_resource_group.connectivity["(...)"]
           dns = {
             ("westeurope") = {
-              name = "my-custom-name-dns"
+              name = "my-custom-name-dns-zones"
             }
           }
 

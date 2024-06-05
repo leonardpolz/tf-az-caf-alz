@@ -1,13 +1,17 @@
-# About
+# Deployment Order
 
-## 1. connectivity
-- Hub virtual networks/ WAN
-- Private DNS Zones
+## 1. spokes
+- Deploy Spokes (ggf. DNS Spoke)
 
-## 2. core
-- Management Groups
-- Custom Policies
-- Custom Roles
+## 2. connectivity
+- Deploy vWAN Hub & Firewall
+- Deploy DNS Zones & Link them to Spokes/ or DNS Spoke
+- Peer spokes to vWAN hub
+
+## 3. core
+- Create Management Group Structure
+- Create Custom Policies
+- Create Custom Roles
 
 ## 3. management
-- Log Analytics
+- Create Central Log Analytics

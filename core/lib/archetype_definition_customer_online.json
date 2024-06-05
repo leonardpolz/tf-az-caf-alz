@@ -1,25 +1,11 @@
 {
-    "customer_online": {
-        "policy_assignments": [
-            "Deny-Resource-Locations",
-            "Deny-RSG-Locations"
-        ],
+    "root": {
+        "policy_assignments": [],
         "policy_definitions": [],
         "policy_set_definitions": [],
         "role_definitions": [],
         "archetype_config": {
-            "parameters": {
-                "Deny-Resource-Locations": {
-                    "listOfAllowedLocations": [
-                        "westeurope"
-                    ]
-                },
-                "Deny-RSG-Locations": {
-                    "listOfAllowedLocations": [
-                        "westeurope"
-                    ]
-                }
-            },
+            "parameters": {},
             "access_control": {}
         }
     }

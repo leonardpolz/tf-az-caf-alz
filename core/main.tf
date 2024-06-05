@@ -15,8 +15,9 @@ module "alz" {
   root_name      = "test"
   library_path   = "${path.module}/lib"
 
-  deploy_core_landing_zones = true
-  custom_landing_zones      = local.custom_landing_zones
+  deploy_core_landing_zones  = true
+  archetype_config_overrides = local.archetype_config_overrides
+  custom_landing_zones       = local.custom_landing_zones
 
   deploy_identity_resources    = false
   configure_identity_resources = local.configure_identity_resources
