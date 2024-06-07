@@ -6,7 +6,7 @@ data "terraform_remote_state" "connectivity" {
   backend = "local"
 
   config = {
-    path = "${path.module}/../connectivity/connectivity.tfstate"
+    path = "${path.module}/../caf-connectivity/connectivity.tfstate"
   }
 }
 
@@ -14,6 +14,6 @@ data "terraform_remote_state" "management" {
   backend = "local"
 
   config = {
-    path = "${path.module}/../management/management.tfstate"
+    path = "${path.module}/../caf-management/management.tfstate"
   }
 }
