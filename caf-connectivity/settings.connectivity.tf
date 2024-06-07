@@ -18,15 +18,10 @@ locals {
               }
             }
             vpn_gateway = {
-              enabled = false
-              config = {
-                bgp_settings       = []
-                routing_preference = ""
-                scale_unit         = 1
-              }
+              enabled = true
             }
             azure_firewall = {
-              enabled = false
+              enabled = true
               config = {
                 enable_dns_proxy              = false
                 dns_servers                   = []

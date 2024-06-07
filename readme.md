@@ -13,5 +13,8 @@
 - Create Custom Policies
 - Create Custom Roles
 
-## 3. management
+## 4. management
 - Create Central Log Analytics
+
+## 5. firewall-management
+- Deploy Firewall Rules
