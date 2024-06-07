@@ -14,7 +14,7 @@ module "rg_spokes" {
 }
 
 module "vnet_spokes" {
-  source = "git::https://github.com/leonardpolz/terraform-modules.git//tf-az-virtual-network?ref=v1.0.0"
+  source = "git::https://github.com/leonardpolz/terraform-modules.git//tf-az-virtual-network?ref=v1.0.6"
   virtual_networks = [
     # Reference from settings.spoke.dns-resolver.tf
     local.dns_resolver_spoke,

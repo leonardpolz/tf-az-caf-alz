@@ -1,3 +1,3 @@
 output "spokes" {
-  value = module.vnet_spokes.virtual_networks
+  value = module.vnet_spokes
 }

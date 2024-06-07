@@ -26,7 +26,7 @@ locals {
               }
             }
             azure_firewall = {
-              enabled = true
+              enabled = false
               config = {
                 enable_dns_proxy              = false
                 dns_servers                   = []
@@ -44,9 +44,9 @@ locals {
             }
             spoke_virtual_network_resource_ids = []
             secure_spoke_virtual_network_resource_ids = [
-              data.terraform_remote_state.spokes.outputs.spokes["dns_resolver"].id,
-              data.terraform_remote_state.spokes.outputs.spokes["example_1"].id,
-              data.terraform_remote_state.spokes.outputs.spokes["example_2"].id
+              data.terraform_remote_state.spokes.outputs.spokes.virtual_networks["dns_resolver"].id,
+              data.terraform_remote_state.spokes.outputs.spokes.virtual_networks["example_1"].id,
+              data.terraform_remote_state.spokes.outputs.spokes.virtual_networks["example_2"].id
             ]
             enable_virtual_hub_connections = true
           }
@@ -134,7 +134,7 @@ locals {
           enable_private_dns_zone_virtual_network_link_on_hubs   = false
           enable_private_dns_zone_virtual_network_link_on_spokes = false
           virtual_network_resource_ids_to_link = [
-            data.terraform_remote_state.spokes.outputs.spokes["dns_resolver"].id,
+            data.terraform_remote_state.spokes.outputs.spokes.virtual_networks["dns_resolver"].id,
           ]
         }
       }
@@ -175,7 +175,7 @@ locals {
           }
         }
 
-        # module.alz.azurerm_firewall.virtual_wan["(...)"]
+        # # module.alz.azurerm_firewall.virtual_wan["(...)"]
         azurerm_firewall = {
           virtual_wan = {
             ("westeurope") = {
@@ -197,7 +197,8 @@ locals {
         azurerm_virtual_hub = {
           virtual_wan = {
             ("westeurope") = {
-              name = "my-custom-name-wanh"
+              name           = "my-custom-name-wanh"
+              address_prefix = "10.100.0.0/23"
             }
           }
         }

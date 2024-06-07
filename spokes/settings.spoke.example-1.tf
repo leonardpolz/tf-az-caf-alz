@@ -5,14 +5,15 @@ locals {
       tf_id = "example_1"
       name  = "vnet-example-1"
 
-      address_space = ["10.100.1.0/28"]
+      address_space = ["10.101.0.32/28"]
+      dns_servers   = ["10.101.0.5"]
 
       subnets = [{
         tf_id = "default"
 
         name = "snet-default"
 
-        address_prefixes = ["10.100.1.0/28"]
+        address_prefixes = ["10.101.0.32/28"]
 
         network_security_group_settings = {
 

@@ -5,14 +5,14 @@ locals {
       tf_id = "dns_resolver"
       name  = "vnet-my-custom-name-dns-resolver"
 
-      address_space = ["10.100.0.0/27"]
+      address_space = ["10.101.0.0/27"]
 
       subnets = [{
         tf_id = "dns_resolver"
 
         name = "snet-my-custom-name-dns-resolver"
 
-        address_prefixes = ["10.100.0.0/28"]
+        address_prefixes = ["10.101.0.0/28"]
 
         delegations = [{
           name = "Microsoft.Network.dnsResolvers"
