@@ -1,12 +1,6 @@
 variable "workloads" {
   type = set(object({
-    name_config = object({
-      workload_name = string
-      id            = optional(string)
-    })
-
-    name_bypass = optional(string)
-
+    name     = string
     priority = number
 
     nat_rule_collections = optional(list(object({

@@ -1,8 +1,6 @@
 locals {
   platform = {
-    name_config = {
-      workload_name = "platform"
-    }
+    name = "platform"
 
     priority = 1000
 
@@ -28,7 +26,15 @@ locals {
           }
         ]
 
-        rules = []
+        rules = [
+          {
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
+          }
+        ]
       },
       {
         name_config = {
@@ -50,7 +56,15 @@ locals {
           }
         ]
 
-        rules = []
+        rules = [
+          {
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
+          }
+        ]
       },
       {
         name_config = {
@@ -72,7 +86,15 @@ locals {
           }
         ]
 
-        rules = []
+        rules = [
+          {
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
+          }
+        ]
       },
       {
         name_config = {
@@ -96,13 +118,11 @@ locals {
 
         rules = [
           {
-            name                 = "Onprem Proxy"
-            description          = "Onprem Proxy -> All Databricks Services"
-            mgmt_table_reference = "68pe3tj6"
-
-            source_ip_groups = [
-              var.ip_groups["proxy_onprem"].id
-            ]
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
           }
         ]
       },
@@ -126,7 +146,15 @@ locals {
           }
         ]
 
-        rules = []
+        rules = [
+          {
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
+          }
+        ]
       },
       {
         name_config = {
@@ -149,7 +177,15 @@ locals {
           }
         ]
 
-        rules = []
+        rules = [
+          {
+            name                 = "AllowStorageBlob"
+            description          = "Allow storage blob"
+            mgmt_table_reference = "storage-accounts"
+            source_addresses     = []
+            source_ip_groups     = []
+          }
+        ]
       },
     ]
 

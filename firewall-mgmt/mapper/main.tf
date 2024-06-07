@@ -1,9 +1,9 @@
 locals {
   result = [
     for wl in var.workloads : {
-      terraform_id = wl.name_bypass != null ? wl.name_bypass : wl.name_config.workload_name
-      name_config = wl.name_config
-      priority    = wl.priority
+      tf_id    = wl.name
+      name     = wl.name
+      priority = wl.priority
 
       application_rule_collections = [
         for arc in wl.application_rule_collections != null ? wl.application_rule_collections : [] : {
@@ -14,12 +14,12 @@ locals {
           rules = [
             for r in arc.rules : {
               name                  = "${r.name}, ID: ${r.mgmt_table_reference}"
-              description            = r.description
-              source_addresses       = r.source_addresses
-              source_ip_groups       = r.source_ip_groups
-              destination_addresses  = arc.destination_addresses
-              destination_fqdns      = arc.destination_fqdns
-              protocols = arc.protocols
+              description           = r.description
+              source_addresses      = r.source_addresses
+              source_ip_groups      = r.source_ip_groups
+              destination_addresses = arc.destination_addresses
+              destination_fqdns     = arc.destination_fqdns
+              protocols             = arc.protocols
             }
           ]
         }

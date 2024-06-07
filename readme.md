@@ -18,3 +18,6 @@
 
 ## 5. firewall-management
 - Deploy Firewall Rules
+
+## 6. vnp-connection
+- Deploy VPN Connection

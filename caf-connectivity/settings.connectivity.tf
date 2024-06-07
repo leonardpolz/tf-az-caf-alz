@@ -6,6 +6,7 @@ locals {
         {
           enabled = true
           config = {
+            //address_prefix = "10.100.0.0/23"
             address_prefix = "10.200.0.0/22"
             location       = "westeurope"
             sku            = "Basic"
@@ -192,8 +193,7 @@ locals {
         azurerm_virtual_hub = {
           virtual_wan = {
             ("westeurope") = {
-              name           = "my-custom-name-wanh"
-              address_prefix = "10.100.0.0/23"
+              name = "my-custom-name-wanh"
             }
           }
         }

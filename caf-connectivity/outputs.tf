@@ -8,6 +8,6 @@ output "subscription_id" {
   value       = local.settings.subscription_id
 }
 
-output "firewall_policy_name" {
-  value = try(module.alz.azurerm_firewall_policy.virtual_wan[element(keys(module.alz.azurerm_firewall_policy.virtual_wan), 0)].name, null)
+output "firewall_policy_id" {
+  value = try(module.alz.azurerm_firewall_policy.virtual_wan[element(keys(module.alz.azurerm_firewall_policy.virtual_wan), 0)].id, null)
 }
